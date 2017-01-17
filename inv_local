@@ -1,6 +1,7 @@
 # Inventory-file
 # containing host information
 
+
 [web]
 172.28.128.3
 
