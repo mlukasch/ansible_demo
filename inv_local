@@ -1,7 +1,5 @@
-[all]
-172.28.128.3
-172.28.128.4
-172.28.128.5
+# Inventory-file
+# containing host information
 
 [web]
 172.28.128.3
