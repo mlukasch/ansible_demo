@@ -1,0 +1,30 @@
+---
+- hosts: nginx
+  become: true
+  tasks:
+    - name: install nginx
+      apt: name={{item}} state=latest update_cache=yes
+      with_items:
+        - nginx
+
+- hosts: db
+  become: true
+  tasks:
+      - name: install postgres
+        apt: name={{item}} state=latest update_cache=yes
+        with_items:
+          - postgresql
+
+- hosts: web
+  become: true
+  tasks:
+      - name: install python pip
+        apt: name={{item}} state=latest update_cache=yes
+        with_items:
+            - python3
+            - python-pip
+
+
+# Tasks consist in Ansible of:
+# - Module
+# - Arguments for the Module
