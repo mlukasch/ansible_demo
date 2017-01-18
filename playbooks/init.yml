@@ -6,6 +6,9 @@
       apt: name={{item}} state=latest update_cache=yes
       with_items:
         - nginx
+        - curl
+    - name: start nginx
+      service: name=nginx state=started enabled=true
 
 - hosts: db
   become: true
@@ -14,6 +17,9 @@
         apt: name={{item}} state=latest update_cache=yes
         with_items:
           - postgresql
+          - curl
+      - name: start postgres
+        service: name=postgresql state=started enabled=true
 
 - hosts: web
   become: true
@@ -23,6 +29,7 @@
         with_items:
             - python3
             - python-pip
+            - curl
 
 
 # Tasks consist in Ansible of:
